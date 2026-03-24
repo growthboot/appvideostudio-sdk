@@ -309,6 +309,7 @@ export function exportVideoDocumentFromState(state = {}) {
 }
 
 export {
+  cloneJson,
   DEFAULT_PROJECT_DIMENSIONS,
   DEFAULT_TIMELINE_DURATION,
   PLAYER_SCHEMA_VERSION,

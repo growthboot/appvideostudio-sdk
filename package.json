@@ -1,6 +1,6 @@
 {
   "name": "@appvideostudio/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "SDK for building, validating, and previewing AppVideoStudio video compositions",
   "exports": {
@@ -60,7 +60,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/growthboot/appvideostudio-sdk"
+    "url": "git+https://github.com/growthboot/appvideostudio-sdk.git"
   },
   "license": "MIT"
 }

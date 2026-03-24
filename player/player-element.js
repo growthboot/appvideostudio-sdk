@@ -1,7 +1,6 @@
 import { PlayerMessageClient } from './message-client.js';
 
 const PLAYER_TAG_NAME = 'avs-player';
-const DEFAULT_PLAYER_ORIGIN = 'https://create.appvideostudio.com';
 
 export class AVSPlayerElement extends HTMLElement {
   static get observedAttributes() {
@@ -69,8 +68,8 @@ export class AVSPlayerElement extends HTMLElement {
 
   getPlayerUrl() {
     const explicitSrc = this.getAttribute('src');
-    const base = explicitSrc || `${DEFAULT_PLAYER_ORIGIN}/player/`;
-    const url = new URL(base, typeof window !== 'undefined' ? window.location.href : DEFAULT_PLAYER_ORIGIN);
+    const base = explicitSrc || `${new URL(import.meta.url).origin}/player/`;
+    const url = new URL(base, window.location.href);
 
     if (this.hasAttribute('autoplay')) {
       url.searchParams.set('autoplay', '1');
@@ -85,7 +84,7 @@ export class AVSPlayerElement extends HTMLElement {
   connectTransport() {
     if (!this.iframe) return;
 
-    const targetUrl = new URL(this.getPlayerUrl(), typeof window !== 'undefined' ? window.location.href : DEFAULT_PLAYER_ORIGIN);
+    const targetUrl = new URL(this.getPlayerUrl(), window.location.href);
     this.transport = new PlayerMessageClient({
       hostWindow: window,
       sourceOrigin: targetUrl.origin,
