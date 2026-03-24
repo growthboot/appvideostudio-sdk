@@ -1,0 +1,66 @@
+{
+  "name": "@appvideostudio/sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SDK for building, validating, and previewing AppVideoStudio video compositions",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./document": {
+      "types": "./document/document.d.ts",
+      "default": "./document/document.js"
+    },
+    "./player": {
+      "types": "./player/player-element.d.ts",
+      "default": "./player/player-element.js"
+    },
+    "./test-harness": {
+      "types": "./test-harness.d.ts",
+      "default": "./test-harness.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "test-harness.js",
+    "test-harness.d.ts",
+    "player/",
+    "document/",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.40.0"
+  },
+  "peerDependenciesMeta": {
+    "@playwright/test": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "appvideostudio",
+    "video",
+    "composition",
+    "player",
+    "embed",
+    "canvas",
+    "template",
+    "sdk"
+  ],
+  "homepage": "https://appvideostudio.com/api/sdk/",
+  "bugs": {
+    "url": "https://github.com/growthboot/appvideostudio-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/growthboot/appvideostudio-sdk"
+  },
+  "license": "MIT"
+}
