@@ -2,6 +2,15 @@
 
 > SDK for building, validating, and previewing AppVideoStudio video compositions.
 
+## Access model
+
+- The npm package can be installed without a separate license gate.
+- The hosted `<avs-player>` runtime and Playwright harness target the AppVideoStudio iframe runtime.
+- Using that hosted runtime requires an authenticated paid AppVideoStudio account.
+- Embedding the hosted player on a customer-owned website requires the `studio` plan.
+- `studio` includes one approved customer domain for hosted embeds.
+- Additional customer domains require direct AppVideoStudio pricing approval.
+
 ## Install
 
 ```bash
@@ -60,6 +69,8 @@ await player.play();
 ```
 
 > **Note:** The `<avs-player>` element creates an iframe to the AppVideoStudio player runtime at `https://create.appvideostudio.com`. The hosted runtime must be reachable for playback to work.
+>
+> Playback through the hosted runtime is access-controlled. Customer website embeds require `studio` and an approved embed domain.
 
 ### Test with Playwright
 
@@ -90,6 +101,8 @@ test('screenshot at 2s', async ({ page }) => {
 ```
 
 > **Note:** The test harness requires `@playwright/test` as a peer dependency (`>=1.40.0`).
+>
+> The harness uses the hosted iframe runtime path. If the account is not entitled to that runtime, harness-based preview flows should fail with an access error rather than bypassing enforcement.
 
 ## Entry Points
 
@@ -262,6 +275,8 @@ Create a Playwright test harness.
 
 Returns a `PlayerHarness` with methods: `play`, `pause`, `seek`, `stop`, `getDocument`, `exportDocument`, `getStatus`, `getErrors`, `getAssets`, `getTimeline`, `getComponent`, `addComponent`, `updateComponentParams`, `updateComponentTiming`, `updateComponentAssets`, `removeComponent`, `replaceDocument`, `listTemplates`, `getTemplate`, `screenshot`, `screenshotAt`, `screenshotSequence`, `destroy`.
 
+The default harness path should be treated as production access-controlled infrastructure, not a bypass around plan checks.
+
 ## Component Catalog
 
 Browse the full interactive catalog at [appvideostudio.com/api/components](https://appvideostudio.com/api/components/).
@@ -280,6 +295,8 @@ Machine-readable metadata: [appvideostudio.com/api/catalog.json](https://appvide
 
 <avs-player src="https://create.appvideostudio.com/player/"></avs-player>
 ```
+
+This embed pattern is intended for AppVideoStudio-owned properties by default. Embedding it on a customer-owned domain requires an authenticated `studio` account with that domain approved in account admin.
 
 ### Build a document programmatically
 
