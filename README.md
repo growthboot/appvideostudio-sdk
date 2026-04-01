@@ -222,10 +222,14 @@ Register the `<avs-player>` custom element. Safe to call multiple times.
 
 #### `AVSPlayerElement`
 
-Extends `HTMLElement`. Observed attributes: `src`, `autoplay`, `loop`, `no-controls`.
+Extends `HTMLElement`. Observed attributes: `src`, `autoplay`, `loop`, `no-controls`, `defer`, `auto-pause`.
 
 **Properties:**
 - `ready: Promise` — resolves when the player iframe is ready
+
+**HTML attributes:**
+- `defer` — waits to create the player iframe until the element first enters the viewport
+- `auto-pause` — pauses playback when a playing embed scrolls out of view (does not auto-resume)
 
 **Playback:**
 - `load(document)` — load a video document
