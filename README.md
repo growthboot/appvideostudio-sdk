@@ -285,7 +285,7 @@ The default harness path should be treated as production access-controlled infra
 
 Browse the full interactive catalog at [appvideostudio.com/api/components](https://appvideostudio.com/api/components/).
 
-Machine-readable metadata: [appvideostudio.com/api/catalog.json](https://appvideostudio.com/api/catalog.json)
+Machine-readable catalog index: [appvideostudio.com/api/catalog.json](https://appvideostudio.com/api/catalog.json) (links to individual template and document model endpoints)
 
 ## Examples
 
